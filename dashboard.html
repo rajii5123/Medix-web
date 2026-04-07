@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            margin: 0;
+        }
 
+        header {
+            background: #0072ff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px gray;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: #e6f0ff;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            background: #0072ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>AI Health & Agriculture Dashboard</h2>
+</header>
+
+<div class="grid">
+
+    <div class="card" onclick="openFeature('animal')">
+        <h3>Animal Detector</h3>
+        <p>Detect animal diseases</p>
+        <button>Open</button>
+    </div>
+
+    <div class="card" onclick="openFeature('plant')">
+        <h3>Plant Disease Detector</h3>
+        <p>Analyze plant leaf diseases</p>
+        <button>Open</button>
+    </div>
+
+    <div class="card" onclick="openFeature('treatment')">
+        <h3>Treatment</h3>
+        <p>Get medicine suggestions</p>
+        <button>Open</button>
+    </div>
+
+    <div class="card" onclick="openFeature('blood')">
+        <h3>Blood Report Analyzer</h3>
+        <p>Analyze reports</p>
+        <button>Open</button>
+    </div>
+
+    <div class="card" onclick="openFeature('diet')">
+        <h3>Diet Planner</h3>
+        <p>Personal health diet plan</p>
+        <button>Open</button>
+    </div>
+
+</div>
+
+<script>
+function openFeature(feature) {
+
+    if(feature === "animal") {
+        alert("Animal Detection Page Coming Soon");
+    }
+
+    if(feature === "plant") {
+        alert("Plant Detection Page Coming Soon");
+    }
+
+    if(feature === "treatment") {
+        alert("Treatment Suggestions Coming Soon");
+    }
+
+    if(feature === "blood") {
+        alert("Blood Report Analyzer Coming Soon");
+    }
+
+    if(feature === "diet") {
+        alert("Diet Planner Coming Soon");
+    }
+}
+</script>
+
+</body>
+</html>
