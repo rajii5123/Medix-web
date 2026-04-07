@@ -1,43 +1,76 @@
-const API ="https://medix-web-z5io.onrender.com" ;
+const API = "https://medi-x-backend-1--rajii5123a.replit.app";
 
 async function uploadHuman() {
-    let file = document.getElementById('humanImg').files[0];
-    let formData = new FormData();
+    const file = document.getElementById('humanImg').files[0];
+    if (!file) {
+        alert("Please select an image!");
+        return;
+    }
+
+    document.getElementById("result").innerText = "Analyzing human disease...";
+
+    const formData = new FormData();
     formData.append("image", file);
 
-    let res = await fetch(API + "/predict/human", {
-        method: "POST",
-        body: formData
-    });
-
-    let data = await res.json();
-    document.getElementById("result").innerText = data.result;
+    try {
+        const res = await fetch(`${API}/predict/human`, {
+            method: "POST",
+            body: formData
+        });
+        const data = await res.json();
+        document.getElementById("result").innerText = data.result;
+    } catch (err) {
+        console.error(err);
+        document.getElementById("result").innerText = "Error analyzing human disease.";
+    }
 }
 
 async function uploadPlant() {
-    let file = document.getElementById('plantImg').files[0];
-    let formData = new FormData();
+    const file = document.getElementById('plantImg').files[0];
+    if (!file) {
+        alert("Please select an image!");
+        return;
+    }
+
+    document.getElementById("result").innerText = "Analyzing plant disease...";
+
+    const formData = new FormData();
     formData.append("image", file);
 
-    let res = await fetch(API + "/predict/plant", {
-        method: "POST",
-        body: formData
-    });
-
-    let data = await res.json();
-    document.getElementById("result").innerText = data.result;
+    try {
+        const res = await fetch(`${API}/predict/plant`, {
+            method: "POST",
+            body: formData
+        });
+        const data = await res.json();
+        document.getElementById("result").innerText = data.result;
+    } catch (err) {
+        console.error(err);
+        document.getElementById("result").innerText = "Error analyzing plant disease.";
+    }
 }
 
 async function uploadReport() {
-    let file = document.getElementById('reportFile').files[0];
-    let formData = new FormData();
+    const file = document.getElementById('reportFile').files[0];
+    if (!file) {
+        alert("Please select a report file!");
+        return;
+    }
+
+    document.getElementById("result").innerText = "Analyzing blood report...";
+
+    const formData = new FormData();
     formData.append("file", file);
 
-    let res = await fetch(API + "/analyze/report", {
-        method: "POST",
-        body: formData
-    });
-
-    let data = await res.json();
-    document.getElementById("result").innerText = data.analysis;
+    try {
+        const res = await fetch(`${API}/analyze/report`, {
+            method: "POST",
+            body: formData
+        });
+        const data = await res.json();
+        document.getElementById("result").innerText = data.analysis;
+    } catch (err) {
+        console.error(err);
+        document.getElementById("result").innerText = "Error analyzing report.";
+    }
 }
