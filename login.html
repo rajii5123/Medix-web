@@ -4,101 +4,105 @@
     <title>Login</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial;
             background: linear-gradient(to right, #00c6ff, #0072ff);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
         .login-box {
             background: white;
-            padding: 40px;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 10px;
             width: 320px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             text-align: center;
         }
 
-        h2 {
-            margin-bottom: 20px;
-        }
-
         input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: #0072ff;
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
         }
 
         button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             background: #0072ff;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
+            border-radius: 5px;
         }
 
-        button:hover {
-            background: #005edb;
-        }
-
-        .extra {
-            margin-top: 15px;
+        .small {
             font-size: 14px;
-        }
-
-        .extra a {
-            text-decoration: none;
-            color: #0072ff;
-        }
-
-        #msg {
-            margin-top: 10px;
-            color: red;
         }
     </style>
 </head>
 <body>
 
 <div class="login-box">
-    <h2>Welcome Back</h2>
+    <h2>Login</h2>
 
     <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
+    
+    <input type="password" id="password" placeholder="Password" id="pass">
+
+    <!-- Show Password -->
+    <div class="small">
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+    </div>
+
+    <!-- Remember Me -->
+    <div class="small">
+        <input type="checkbox" id="remember"> Remember Me
+    </div>
 
     <button onclick="login()">Login</button>
 
     <p id="msg"></p>
-
-    <div class="extra">
-        <p><a href="#">Forgot Password?</a></p>
-        <p>New user? <a href="#">Sign Up</a></p>
-    </div>
 </div>
 
 <script>
+// Show password
+function togglePassword() {
+    let pass = document.getElementById("password");
+    pass.type = pass.type === "password" ? "text" : "password";
+}
+
+// Login
 function login() {
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
+    let remember = document.getElementById("remember").checked;
 
     if(user === "admin" && pass === "1234") {
+        
+        // Save user if remember checked
+        if(remember) {
+            localStorage.setItem("user", user);
+        }
+
         document.getElementById("msg").style.color = "green";
         document.getElementById("msg").innerText = "Login Successful!";
+
+        // Redirect after login
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1000);
+
     } else {
         document.getElementById("msg").style.color = "red";
-        document.getElementById("msg").innerText = "Invalid Username or Password";
+        document.getElementById("msg").innerText = "Invalid Login";
+    }
+}
+
+// Auto-fill remembered user
+window.onload = function() {
+    let savedUser = localStorage.getItem("user");
+    if(savedUser) {
+        document.getElementById("username").value = savedUser;
     }
 }
 </script>
