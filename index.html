@@ -1,24 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MediX</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI Disease Detection</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #e6e6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #d9d9d9;
+            padding: 40px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            margin: 15px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        .section-title {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="box">
+<div class="container">
+
     <h1>AI Disease Detection</h1>
 
-    <input type="file" id="image"><br><br>
+    <!-- Image Upload -->
+    <input type="file"><br>
 
     <button onclick="detect()">Detect Disease</button>
 
-    <h3 id="result"></h3>
+    <!-- Dashboard Features -->
+    <div class="section-title">Features</div>
+
+    <button onclick="openFeature('animal')">Animal Detector</button>
+    <button onclick="openFeature('plant')">Plant Detector</button>
+    <button onclick="openFeature('treatment')">Treatment</button>
+    <button onclick="openFeature('blood')">Blood Report Analyzer</button>
+    <button onclick="openFeature('diet')">Diet Planner</button>
 
     <button onclick="logout()">Logout</button>
+
 </div>
 
-<script src="script.js"></script>
+<script>
+function detect() {
+    alert("Disease detection running...");
+}
+
+function openFeature(feature) {
+
+    if(feature === "animal") {
+        alert("Animal Detection Module");
+    }
+
+    if(feature === "plant") {
+        alert("Plant Detection Module");
+    }
+
+    if(feature === "treatment") {
+        alert("Treatment Suggestions");
+    }
+
+    if(feature === "blood") {
+        alert("Blood Report Analyzer");
+    }
+
+    if(feature === "diet") {
+        alert("Diet Planner");
+    }
+}
+
+function logout() {
+    window.location.href = "login.html";
+}
+</script>
 
 </body>
 </html>
