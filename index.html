@@ -1,74 +1,24 @@
-q!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<title>MediX Dashboard</title>
-<link rel="stylesheet" href="style.css">
+    <title>MediX</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>MediX Dashboard 🌿🏥</h1>
+<div class="box">
+    <h1>AI Disease Detection</h1>
 
-<div class="dashboard-grid">
+    <input type="file" id="image"><br><br>
 
-    <!-- Row 1: Disease Analyzers -->
-    <div class="card">
-        <h2>Human Disease</h2>
-        <input type="file" id="humanImg">
-        <button onclick="uploadHuman()">Analyze</button>
-    </div>
+    <button onclick="detect()">Detect Disease</button>
 
-    <div class="card">
-        <h2>Plant Disease</h2>
-        <input type="file" id="plantImg">
-        <button onclick="uploadPlant()">Analyze</button>
-    </div>
+    <h3 id="result"></h3>
 
-    <div class="card">
-        <h2>Blood Report</h2>
-        <input type="file" id="reportFile">
-        <button onclick="uploadReport()">Analyze</button>
-    </div>
-
-    <!-- Row 2: Patient & Medicine -->
-    <div class="card">
-        <h2>Medicine Tracker</h2>
-        <input type="text" id="medName" placeholder="Medicine Name">
-        <input type="text" id="medTime" placeholder="Time">
-        <button onclick="addMedicine()">Add</button>
-        <ul id="medList"></ul>
-    </div>
-
-    <div class="card">
-        <h2>Patient Health Notes</h2>
-        <textarea id="healthNotes" placeholder="Enter notes"></textarea>
-        <button onclick="saveHealthNotes()">Save Notes</button>
-        <p id="healthMsg"></p>
-    </div>
-
-    <!-- Row 3: Hospitals & Diet -->
-    <div class="card">
-        <h2>Nearby Hospitals</h2>
-        <input type="text" id="location" placeholder="Enter City">
-        <button onclick="findHospitals()">Search</button>
-        <ul id="hospitalList"></ul>
-    </div>
-
-    <div class="card">
-        <h2>Diet Planner</h2>
-        <select id="dietCondition">
-            <option value="">Select Condition</option>
-            <option value="Anemia">Anemia</option>
-            <option value="Normal">Normal</option>
-            <option value="Diabetes">Diabetes</option>
-        </select>
-        <button onclick="showDiet()">Get Diet</button>
-        <ul id="dietList"></ul>
-    </div>
-
+    <button onclick="logout()">Logout</button>
 </div>
 
-<h2 id="result"></h2>
 <script src="script.js"></script>
+
 </body>
 </html>
