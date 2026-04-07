@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -11,28 +11,26 @@
 
 <div class="dashboard-grid">
 
-    <!-- Human Disease -->
+    <!-- Row 1: Disease Analyzers -->
     <div class="card">
         <h2>Human Disease</h2>
         <input type="file" id="humanImg">
         <button onclick="uploadHuman()">Analyze</button>
     </div>
 
-    <!-- Plant Disease -->
     <div class="card">
         <h2>Plant Disease</h2>
         <input type="file" id="plantImg">
         <button onclick="uploadPlant()">Analyze</button>
     </div>
 
-    <!-- Blood Report -->
     <div class="card">
         <h2>Blood Report</h2>
         <input type="file" id="reportFile">
         <button onclick="uploadReport()">Analyze</button>
     </div>
 
-    <!-- Medicine Tracker -->
+    <!-- Row 2: Patient & Medicine -->
     <div class="card">
         <h2>Medicine Tracker</h2>
         <input type="text" id="medName" placeholder="Medicine Name">
@@ -41,7 +39,6 @@
         <ul id="medList"></ul>
     </div>
 
-    <!-- Patient Health Notes -->
     <div class="card">
         <h2>Patient Health Notes</h2>
         <textarea id="healthNotes" placeholder="Enter notes"></textarea>
@@ -49,7 +46,7 @@
         <p id="healthMsg"></p>
     </div>
 
-    <!-- Nearby Hospitals -->
+    <!-- Row 3: Hospitals & Diet -->
     <div class="card">
         <h2>Nearby Hospitals</h2>
         <input type="text" id="location" placeholder="Enter City">
@@ -57,7 +54,6 @@
         <ul id="hospitalList"></ul>
     </div>
 
-    <!-- Diet Planner -->
     <div class="card">
         <h2>Diet Planner</h2>
         <select id="dietCondition">
@@ -75,5 +71,4 @@
 <h2 id="result"></h2>
 <script src="script.js"></script>
 </body>
-</html>
 </html>
