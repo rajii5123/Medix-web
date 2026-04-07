@@ -1,4 +1,4 @@
-const API = "https://medix-web.onrender.com";
+const API ="https://medix-web-z5io.onrender.com" ;
 
 async function uploadHuman() {
     let file = document.getElementById('humanImg').files[0];
